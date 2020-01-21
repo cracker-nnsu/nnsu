@@ -23,6 +23,6 @@ public interface ServiceRepository extends CrudRepository<Service, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "update service set service_status_id = 2 where customer_id = ?1 and id = ?2; update hardware set hardware_status_id = 2 where service_id = ?2 order by RANDOM() limit 1", nativeQuery = true)
+    @Query(value = "update service set service_status_id = 2 where customer_id = ?1 and id = ?2; update hardware set hardware_status_id = 2 where service_id = ?2 order by RAND() limit 1", nativeQuery = true)
     void setServiceStatusFailByCustomer_IdAndService_Id(Long customerId, Long serviceId);
 }
