@@ -3,10 +3,13 @@ INSERT INTO customer_status (name) VALUES ('FAIL') ON CONFLICT (name) DO UPDATE 
 
 INSERT INTO service_status (name) VALUES ('NORMAL') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
 INSERT INTO service_status (name) VALUES ('FAIL') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
+INSERT INTO service_status (name) VALUES ('UNDER_MAINT') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
+INSERT INTO service_status (name) VALUES ('TO_REPLACE') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
 
 INSERT INTO hardware_status (name) VALUES ('NORMAL') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
 INSERT INTO hardware_status (name) VALUES ('FAIL') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
-INSERT INTO hardware_status (name) VALUES ('MAINTENANCE') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
+INSERT INTO hardware_status (name) VALUES ('UNDER_MAINT') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
+INSERT INTO hardware_status (name) VALUES ('TO_REPLACE') ON CONFLICT (name) DO UPDATE SET name=EXCLUDED.name;
 
 INSERT INTO address (full_address) VALUES ('ул ломоносова д 23') ON CONFLICT (full_address) DO UPDATE SET full_address=EXCLUDED.full_address;
 INSERT INTO address (full_address) VALUES ('ул северная  д 30') ON CONFLICT (full_address) DO UPDATE SET full_address=EXCLUDED.full_address;
