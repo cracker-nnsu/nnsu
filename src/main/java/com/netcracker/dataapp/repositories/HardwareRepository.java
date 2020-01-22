@@ -12,6 +12,8 @@ public interface HardwareRepository extends CrudRepository<Hardware, Long> {
     Iterable<Hardware> findAllByService(Service service);
     Iterable<Hardware> findAllByService_Id(Long serviceId);
     Iterable<Hardware> findAllByServiceIsNull();
+    Iterable<Hardware> findAllByHardwareStatus(HardwareStatus hardwareStatus);
+    Iterable<Hardware> findAllByHardwareStatus_Id(Long hardwareStatusId);
 
     @Query("select h from Hardware h where h.hardwareStatus.id = 2 and h.service.customer = ?1")
     Iterable<Hardware> findAllFaultyByCustomer(Customer customer);
