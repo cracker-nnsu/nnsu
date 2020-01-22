@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ServiceRepository extends CrudRepository<Service, Long> {
     Iterable<Service> findAllByCustomer(Customer customer);
     Iterable<Service> findAllByCustomer_Id(Long customerId);
+    Iterable<Service> findAllByServiceStatus(ServiceStatus serviceStatus);
+    Iterable<Service> findAllByServiceStatus_Id(Long serviceStatusId);
 
     @Modifying
     @Transactional
