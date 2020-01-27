@@ -33,8 +33,8 @@ public interface HardwareRepository extends CrudRepository<Hardware, Long> {
 
     @Modifying
     @Transactional
-    @Query("update Hardware h set h.hardwareStatus.id = 1 where h.id = ?1")
-    int setHardwareStatusNormalByHardware_Id(Long hardwareId);
+    @Query(value = "update hardware set hardware_status_id = 1 where id = :hardwareId ; update service set service_status_id = 1 where id = (select h.service_id from hardware h where h.id = :hardwareId and not exists (select h2.id from hardware h2 where h2.service_id = h.service_id and h2.hardware_status_id <> 1))", nativeQuery = true)
+    int setHardwareStatusNormalByHardware_Id(@Param("hardwareId") Long hardwareId);
     @Modifying
     @Transactional
     @Query(value = "update hardware set hardware_status_id = 2 where id = :hardwareId ; update service set service_status_id = 2 where id = (select h.service_id from hardware h where h.id = :hardwareId )", nativeQuery = true)
