@@ -6,6 +6,7 @@ import com.netcracker.dataapp.entities.ServiceStatus;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface ServiceRepository extends CrudRepository<Service, Long> {
@@ -19,6 +20,6 @@ public interface ServiceRepository extends CrudRepository<Service, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "update service set service_status_id = 2 where customer_id = ?1 and id = ?2; update hardware set hardware_status_id = 2 where service_id = ?2 order by RAND() limit 1", nativeQuery = true)
-    int setServiceStatusFailByCustomer_IdAndService_Id(Long customerId, Long serviceId);
+    @Query(value = "update service set service_status_id = 2 where customer_id = :customerId and id = :serviceId ; update hardware set hardware_status_id = 2 where service_id = :serviceId order by RAND() limit 1", nativeQuery = true)
+    int setServiceStatusFailByCustomer_IdAndService_Id(@Param("customerId") Long customerId, @Param("serviceId") Long serviceId);
 }
