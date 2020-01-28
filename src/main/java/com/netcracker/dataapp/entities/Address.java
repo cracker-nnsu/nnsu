@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,6 +20,9 @@ public class Address {
     @NotNull
     @Column(unique = true)
     private String fullAddress;
+
+    @OneToMany(mappedBy = "address")
+    private List<Hardware> hardwares;
 
     @Override
     public String toString() {
