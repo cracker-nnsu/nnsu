@@ -1,8 +1,6 @@
 package com.netcracker.dataapp.repositories;
 
-import com.netcracker.dataapp.entities.Customer;
 import com.netcracker.dataapp.entities.Service;
-import com.netcracker.dataapp.entities.ServiceStatus;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
