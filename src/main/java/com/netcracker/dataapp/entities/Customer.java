@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,6 +28,10 @@ public class Customer {
     @NotNull
     @ManyToOne
     private CustomerStatus customerStatus;
+
+    @NotNull
+    @OneToMany(mappedBy = "customer")
+    private List<Service> services;
 
     @Override
     public String toString() {
