@@ -40,6 +40,12 @@ INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALU
 INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Mike','Miklo','79555555555',1);
 INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Zina','Sergeeva','79222222222',2);
 INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Alla','Brovchenko','79332323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Alla','Brovchenko','79332323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Rodrogo','Leiaa','79332344512',2);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('leazzi','Loiir','79332323231',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Reofo','Loiiw','79332321232',2);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Allaaa','Brovchenkfo','70332323232',1);
+
 
 INSERT INTO service (name,customer_id,service_status_id) VALUES ('Internet',1,1);
 INSERT INTO service (name,customer_id,service_status_id) VALUES ('TV',1,2);
