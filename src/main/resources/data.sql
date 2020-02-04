@@ -44,7 +44,15 @@ INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALU
 INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Rodrogo','Leiaa','79332344512',2);
 INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('leazzi','Loiir','79332323231',1);
 INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Reofo','Loiiw','79332321232',2);
-INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Allaaa','Brovchenkfo','70332323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Igor','Resorr','703323232312',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Lana','Reyu','703332323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Rimo','Desti','700332323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Segor','Lettor','703332323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Noghr','Regb','7033232323251',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Real','Bfeer','7012332323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Nestor','Asser','7134532323232',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Boria','Nesto','703323232332',1);
+INSERT INTO customer (first_name,last_name,phone_number,customer_status_id) VALUES ('Kello','Bffar','7033232356232',1);
 
 
 INSERT INTO service (name,customer_id,service_status_id) VALUES ('Internet',1,1);
