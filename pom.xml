@@ -11,7 +11,7 @@
 	<groupId>com.netcracker</groupId>
 	<artifactId>data-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>data-app</name>
+	<name>Data App</name>
 	<description>Data Application</description>
 
 	<properties>

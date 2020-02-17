@@ -28,7 +28,7 @@ public interface HardwareRepository extends CrudRepository<Hardware, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "update hardware set hardware_status_id = :hardwareStatusId where id = :hardwareId ; update service set service_status_id = :hardwareStatusId where id = (select h.service_id from hardware h where h.id = :hardwareId and (not exists (select h2.id from hardware h2 where h2.service_id = h.service_id and h2.hardware_status_id <> 1) or :hardwareStatusId <> 1 )) ; update customer set customer_status_id = decode( :hardwareStatusId , 1, 1, 2, 2, 3, 2, 4, 2) where id = (select s.customer_id from service s where s.id = (select service_id from hardware where id = :hardwareId ) and (not exists (select s2.id from service s2 where s2.customer_id = s.customer_id and s2.service_status_id <> 1) or :hardwareStatusId <> 1 ))", nativeQuery = true)
+    @Query(value = "update hardware set hardware_status_id = :hardwareStatusId where id = :hardwareId ; update service set service_status_id = decode( :hardwareStatusId , 1, 1, 2, 2, 3, 2, 4, 2) where id = (select h.service_id from hardware h where h.id = :hardwareId and (not exists (select h2.id from hardware h2 where h2.service_id = h.service_id and h2.hardware_status_id <> 1) or :hardwareStatusId <> 1 )) ; update customer set customer_status_id = decode( :hardwareStatusId , 1, 1, 2, 2, 3, 2, 4, 2) where id = (select s.customer_id from service s where s.id = (select service_id from hardware where id = :hardwareId ) and (not exists (select s2.id from service s2 where s2.customer_id = s.customer_id and s2.service_status_id <> 1) or :hardwareStatusId <> 1 ))", nativeQuery = true)
     int setHardwareStatusByHardware_Id(@Param("hardwareId") Long hardwareId, @Param("hardwareStatusId") Long hardwareStatusId);
 
     @Modifying
@@ -41,7 +41,7 @@ public interface HardwareRepository extends CrudRepository<Hardware, Long> {
     int setHardwareStatusFailByHardware_Id(@Param("hardwareId") Long hardwareId);
     @Modifying
     @Transactional
-    @Query(value = "update Hardware h set h.hardwareStatus.id = 3 where h.id = :hardwareId ; update service set service_status_id = 3 where id = (select h.service_id from hardware h where h.id = :hardwareId ) ; update customer set customer_status_id = 2 where id = (select distinct s.customer_id from hardware h, service s where h.id = :hardwareId and s.id = h.service_id)", nativeQuery = true)
+    @Query(value = "update Hardware h set h.hardwareStatus.id = 3 where h.id = :hardwareId ; update service set service_status_id = 2 where id = (select h.service_id from hardware h where h.id = :hardwareId ) ; update customer set customer_status_id = 2 where id = (select distinct s.customer_id from hardware h, service s where h.id = :hardwareId and s.id = h.service_id)", nativeQuery = true)
     int setHardwareStatusUnderMaintByHardware_Id(@Param("hardwareId") Long hardwareId);
 
     @Modifying

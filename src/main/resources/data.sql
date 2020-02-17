@@ -3,8 +3,6 @@ INSERT INTO customer_status (name) VALUES ('FAIL');
 
 INSERT INTO service_status (name) VALUES ('NORMAL');
 INSERT INTO service_status (name) VALUES ('FAIL');
-INSERT INTO service_status (name) VALUES ('UNDER_MAINT');
-INSERT INTO service_status (name) VALUES ('TO_REPLACE');
 
 INSERT INTO hardware_status (name) VALUES ('NORMAL');
 INSERT INTO hardware_status (name) VALUES ('FAIL');

@@ -13,11 +13,11 @@ public interface ServiceRepository extends CrudRepository<Service, Long> {
 
     @Modifying
     @Transactional
-    @Query("update Service s set s.serviceStatus.id = ?1 where s.customer.id = ?2 and s.id = ?3")
-    int setServiceStatusByCustomer_IdAndService_Id(Long serviceStatusId, Long customerId, Long serviceId);
+    @Query(value = "update service set service_status_id = :serviceStatusId where id = :serviceId ; update hardware set hardware_status_id = 2 where id = (select h.id from hardware h, service s where h.service_id = s.id and s.id = :serviceId and s.service_status_id = 2 order by RAND() limit 1)", nativeQuery = true)
+    int setServiceStatusByService_Id(@Param("serviceId") Long serviceId, @Param("serviceStatusId") Long serviceStatusId);
 
     @Modifying
     @Transactional
-    @Query(value = "update service set service_status_id = 2 where customer_id = :customerId and id = :serviceId ; update hardware set hardware_status_id = 2 where service_id = :serviceId order by RAND() limit 1", nativeQuery = true)
-    int setServiceStatusFailByCustomer_IdAndService_Id(@Param("customerId") Long customerId, @Param("serviceId") Long serviceId);
+    @Query(value = "update service set service_status_id = 2 where id = :serviceId ; update hardware set hardware_status_id = 2 where id = (select h.id from hardware h where h.service_id = :serviceId order by RAND() limit 1)", nativeQuery = true)
+    int setServiceStatusFailByService_Id(@Param("serviceId") Long serviceId);
 }
